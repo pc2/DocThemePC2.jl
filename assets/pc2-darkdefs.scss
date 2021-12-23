@@ -10,7 +10,7 @@ $body-background-color: $darkbg; // main page background
 
 // this is the color the links get, and also when they are hovered
 $link: lighten-color($secondcolor, 2);
-$link-hover: lighten-color($link, 3);
+$link-hover: lighten-color($link, 1.2);
 
 // Main text color:
 $text: darken-color($mainwhite, 0.2);
@@ -32,12 +32,12 @@ $documenter-sidebar-background: darken-color($maincolor, 1.2); //background colo
 $documenter-sidebar-color: $text; //font color for sidebar
 $documenter-sidebar-menu-hover-color: $documenter-sidebar-color;
 // $documenter-sidebar-menu-hover-background: lighten-color($documenter-sidebar-background, 1.2);
-$documenter-sidebar-menu-hover-background: lighten-color($secondcolor, 2);
+$documenter-sidebar-menu-hover-background: darken-color($maincolor, 2);
 
 $documenter-sidebar-menu-active-background: $darkbg;
 $documenter-sidebar-menu-active-color: $mainwhite;
 // $documenter-sidebar-menu-active-hover-background: lighten-color($documenter-sidebar-background, 1);
-$documenter-sidebar-menu-active-hover-background: lighten-color($secondcolor, 2);
+$documenter-sidebar-menu-active-hover-background: darken-color($maincolor, 1.5);
 $documenter-sidebar-menu-active-hover-color: $documenter-sidebar-menu-active-color;
 // these two change what happens with input boxes (the search box):
 $input-hover-border-color: $secondcolor;
@@ -59,7 +59,7 @@ $admonition-background: (
 );
 $admonition-header-background: (
   "default": rgba(#444444, 0.5),
-  "warning": rgba($pc2red, 0.5),
+  "warning": rgba($pc2red, 0.4),
   "danger": rgba($pc2orange, 0.5),
   "success": rgba($pc2green, 0.5),
   "info": rgba($pc2darkblue, 0.5),
@@ -94,20 +94,7 @@ html.theme--#{$themename} {
 
   @import "documenter/theme_overrides";
 
-  // // $shadow-color: #202224;
   #documenter .docs-sidebar {
-    // This makes sidebar have shadow at all displays
-    // border-right: 1px solid #666;
-    // box-shadow: 1.2 * $shadow-size 0rem 1 * $shadow-blur invert($shadow-color);
-
-    // > ul.docs-menu {
-    //   border-top: 1px solid #666;
-
-    //   > li {
-    //     border-left: 1px solid #666;
-    //   }
-    // }
-
     form.docs-search > input {
       // these controls are for the searchbar
       color: $mainwhite;
@@ -128,6 +115,26 @@ html.theme--#{$themename} {
     font-weight: bolder;
   }
 
+  // highlight.js color for built-ins
+  span.hljs-built_in {
+    color: $pc2darkblue;
+  }
+
+  // highlight.js color for keywords (e.g. `using`)
+  span.hljs-built_in {
+    font-weight: bold;
+  }
+
+  // highlight.js color for literals (e.g. `true`) but not numbers
+  span.hljs-literal {
+    color: darken-color($pc2green, 1.2);
+  }
+
+  // highlight.js color for numbers
+  span.hljs-number {
+    color: darken-color($pc2orange 1.4);
+  }
+
   // FIXME: Hack to get a proper theme for highlight.js in the dark theme
   @import "highlightjs/a11y-dark";
   // Also, a11y-dark does not highlight string interpolation properly.
@@ -135,7 +142,3 @@ html.theme--#{$themename} {
     color: #f8f8f2;
   }
 }
-
-// html.theme--documenter-dark .content pre {
-//   border: 1 px solid #555;
-// }
