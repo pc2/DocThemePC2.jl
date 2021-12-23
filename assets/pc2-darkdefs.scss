@@ -105,6 +105,9 @@ html.theme--#{$themename} {
       &::placeholder {
         color: $mainwhite; // placeholder text color ("Search here...")
       }
+      &::hover {
+        border-color: lighten-color($secondcolor, 2);
+      }
     }
   }
 
