@@ -93,11 +93,31 @@ html.theme--#{$themename} {
   @import "documenter/theme_overrides";
 
   // // $shadow-color: #202224;
-  // #documenter .docs-sidebar {
-  //   // This makes sidebar have shadow at all displays
-  //   border-right: none;
-  //   box-shadow: 1.2 * $shadow-size 0rem 1 * $shadow-blur invert($shadow-color);
-  // }
+  #documenter .docs-sidebar {
+    // This makes sidebar have shadow at all displays
+    border-right: 1px solid #666;
+    // box-shadow: 1.2 * $shadow-size 0rem 1 * $shadow-blur invert($shadow-color);
+
+    > ul.docs-menu {
+      border-top: 1px solid #666;
+
+      > li {
+        border-left: 1px solid #666;
+      }
+    }
+
+    form.docs-search > input {
+      // these controls are for the searchbar
+      color: $mainwhite;
+      background-color: darken-color($documenter-sidebar-background, 1);
+      border-color: darken-color($documenter-sidebar-background, 2);
+      margin-top: 1rem;
+      margin-bottom: 1rem; // adjust the margings between search and other elements
+      &::placeholder {
+        color: $mainwhite; // placeholder text color ("Search here...")
+      }
+    }
+  }
 
   // highlight.js color scheme override for the julia> prompt
   code.language-julia-repl > span.hljs-meta {
@@ -114,6 +134,6 @@ html.theme--#{$themename} {
   }
 }
 
-// html.theme--documenter-dark .content pre {
-//   border: 1 px solid #fff;
-// }
+html.theme--documenter-dark .content pre {
+  border: 1 px solid #555;
+}
