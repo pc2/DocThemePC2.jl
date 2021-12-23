@@ -1,0 +1,112 @@
+// This template file overrides some of the Documenter theme variables to customize the theme:
+$themename: "documenter-light"; // CSS file must be called `$(themename).css`
+
+$boldcolor: $maincolor; // darken-color($maincolor, 1);
+
+$body-background-color: $mainwhite; // main page background
+
+// Sidebar
+$documenter-sidebar-background: $maincolor; //background color for sidebar
+$documenter-sidebar-color: $mainwhite; //font color all sidebar
+$documenter-sidebar-menu-hover-color: $documenter-sidebar-color; // text color
+// $documenter-sidebar-menu-hover-background: darken-color($documenter-sidebar-background, 1.5);
+$documenter-sidebar-menu-hover-background: $secondcolor;
+
+$documenter-sidebar-menu-active-background: $mainwhite;
+$documenter-sidebar-menu-active-color: $mainblack;
+$documenter-sidebar-menu-active-hover-background: lighten-color($secondcolor, 4);
+// $documenter-sidebar-menu-active-hover-background: $secondcolor;
+$documenter-sidebar-menu-active-hover-color: $documenter-sidebar-menu-active-color;
+
+// this is the color the links get, and also when they are hovered
+$link: darken-color($secondcolor, 2); // was 1.4
+$link-hover: darken-color($link, 1.2);
+
+// Main text color:
+$text: $mainblack;
+// Bold text color, also affects headers
+$text-strong: $boldcolor;
+
+// Section headers (markdown ###) text color:
+// TODO
+
+// Code text color:
+$code: #000000;
+//$code-background: rgba(0.5,0,0, 0.05);
+// $codebg: lighten-color($maincolor, 5.8);
+$codebg: rgba(0, 0, 0, 0.05) !default;
+// $codebg: lighten-color($secondcolor, 8);
+$code-background: $codebg; // for inline code
+$pre-background: $codebg; // for code blocks
+// $documenter-docstring-header-background: darken-color($body-background-color, 0.4);
+$documenter-docstring-header-background: $codebg;
+
+// main text font size
+$body-font-size: 1em; // the default is 1.0
+// Sidebar text font size
+$documenter-sidebar-size: 1em; // the default is 1.0 as well
+
+// these two change what happens with input boxes (the search box):
+$input-hover-border-color: $secondcolor;
+$input-focus-border-color: $mainwhite;
+
+// Admonition stuff
+$admonition-background: (
+  "default": lighten-color(#444444, 4.5),
+  "warning": lighten-color($pc2red, 5.5),
+  "danger": lighten-color($pc2orange, 4.5),
+  "success": lighten-color($pc2green, 4.5),
+  "info": lighten-color($pc2lightblue, 5),
+  "compat": lighten-color(#444444, 4.5),
+);
+$admonition-header-background: (
+  "default": #444444,
+  "warning": $pc2red,
+  "danger": $pc2orange,
+  "success": $pc2green,
+  "info": $pc2lightblue,
+);
+
+// Include the original theme which will now use the updated variables.
+// This should be the last thing in the SCSS file.
+@import "documenter-light";
+
+#documenter .docs-sidebar {
+  // This makes sidebar have shadow at all displays
+  border-right: none;
+  box-shadow: 1.2 * $shadow-size 0rem 1 * $shadow-blur $shadow-color;
+
+  form.docs-search > input {
+    // these controls are for the searchbar
+    color: $mainwhite;
+    background-color: darken-color($documenter-sidebar-background, 1);
+    border-color: darken-color($documenter-sidebar-background, 2);
+    margin-top: 1rem;
+    margin-bottom: 1rem; // adjust the margings between search and other elements
+    &::placeholder {
+      color: $mainwhite; // placeholder text color ("Search here...")
+    }
+  }
+}
+
+// highlight.js color scheme override for the julia> prompt
+code.language-julia-repl > span.hljs-meta {
+  // color: #066f00; // original
+  color: $pc2darkblue;
+  font-weight: bolder;
+}
+
+// highlight.js color for built-ins
+span.hljs-built_in {
+  color: $pc2darkblue;
+}
+
+// highlight.js color for literals (e.g. `true`) but not numbers
+span.hljs-literal {
+  color: darken-color($pc2green, 1.2);
+}
+
+// highlight.js color for numbers
+span.hljs-number {
+  color: darken-color($pc2red, 1.2);
+}

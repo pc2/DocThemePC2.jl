@@ -1,0 +1,7 @@
+.vscode
+*.jl.*.cov
+*.jl.cov
+*.jl.mem
+/Manifest.toml
+/docs/build/
+/docs/src/assets/indigo.css
