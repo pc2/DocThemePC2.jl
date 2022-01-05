@@ -4,6 +4,8 @@
 
 *A [Documenter.jl](https://github.com/JuliaDocs/Documenter.jl) theme for the [Paderborn Center of Parallel Computing (PC2)](https://pc2.uni-paderborn.de/).*
 
+Check out the [SubmatrixMethod.jl docs](https://pc2.github.io/SubmatrixMethod.jl/dev/) to see how it looks.
+
 ## Installation
 
 <p>
