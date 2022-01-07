@@ -1,7 +1,7 @@
 name = "DocThemePC2"
 uuid = "891028e3-bd96-440d-a0ed-4cea5ae68e00"
 authors = ["Carsten Bauer <carsten.bauer@uni-paderborn.de> and contributors"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 DocumenterTools = "35a29f4d-8980-5a13-9543-d66fff28ecb8"
